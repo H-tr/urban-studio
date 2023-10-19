@@ -1,4 +1,4 @@
-# Urban Studio 🌆
+# Urban Studio
 
 ![Urban Studio Logo](imgs/logo.png)
 
@@ -6,7 +6,7 @@ Urban Studio is a powerful and user-friendly toolkit for urban design and analys
 
 ## 📚 Table of Contents
 
-- [Urban Studio 🌆](#urban-studio-)
+- [Urban Studio](#urban-studio)
   - [📚 Table of Contents](#-table-of-contents)
   - [🚀 Features](#-features)
   - [🛠 Installation](#-installation)
