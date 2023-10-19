@@ -36,13 +36,20 @@ To use Urban Studio, follow these steps:
    git clone https://github.com/yourusername/urban-studio.git
    ```
 
-2. Install the required dependencies by running:
+2. Create virtual environment (conda is recommanded)
+
+   ```bash
+   conda create -n urban-studio -y python=3.9
+   conda activate urban-studio
+   ```
+
+3. Install the required dependencies by running:
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. Launch the application by running:
+4. Launch the application by running:
 
    ```bash
    python urban_studio.py
