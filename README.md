@@ -43,10 +43,10 @@ To use Urban Studio, follow these steps:
    conda activate urban-studio
    ```
 
-3. Install the required dependencies by running:
+3. Install the required dependencies and build the project by running:
 
    ```bash
-   pip install -r requirements.txt
+   pip install -e .
    ```
 
 4. Launch the application by running:
