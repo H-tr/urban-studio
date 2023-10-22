@@ -1,6 +1,4 @@
 from transformers import SegformerImageProcessor, SegformerForSemanticSegmentation
-from PIL import Image
-import requests
 import numpy as np
 import matplotlib.pyplot as plt
 from torch import nn
@@ -18,14 +16,6 @@ def seg_image(image):
     inputs = processor(images=image, return_tensors="pt")
     outputs = model(**inputs)
     logits = outputs.logits  # shape (batch_size, num_labels, height/4, width/4)
-    return logits
-
-def main():
-    url = "http://images.cocodataset.org/val2017/000000039769.jpg"
-    image = Image.open(requests.get(url, stream=True).raw)
-
-    logits = seg_image(image)
-
     # First, rescale logits to original image size
     logits = nn.functional.interpolate(
         logits.detach().cpu(),
@@ -48,10 +38,4 @@ def main():
     img = np.array(image) * 0.5 + color_seg * 0.5
     img = img.astype(np.uint8)
 
-    plt.figure(figsize=(15, 10))
-    plt.imshow(img)
-    plt.show()
-
-
-if __name__ == "__main__":
-    main()
+    return img
