@@ -4,7 +4,7 @@ import requests
 import numpy as np
 import matplotlib.pyplot as plt
 from torch import nn
-from urban_studio.utils import ade_palette
+from urban_studio.utils.segmentation_utils import ade_palette
 
 processor = SegformerImageProcessor.from_pretrained(
     "nvidia/segformer-b0-finetuned-ade-512-512"
