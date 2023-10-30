@@ -1,6 +1,6 @@
 # Urban Studio - Dev Branch (Model Fine-Tuning)
 
-![Urban Studio Logo](/path/to/logo.png)
+![Urban Studio Logo](imgs/logo.png)
 
 Welcome to the "Urban Studio" development branch dedicated to model fine-tuning and self-few-shot labeling for segmentation. This branch enables you to enhance the accuracy of your urban environment segmentation model through fine-tuning and self-labeling, making it even more powerful and customizable.
 
