@@ -1,90 +1,66 @@
-# Urban Studio
+# Urban Studio - Dev Branch (Model Fine-Tuning)
 
-![Urban Studio Logo](imgs/logo.png)
+![Urban Studio Logo](/path/to/logo.png)
 
-Urban Studio is a powerful and user-friendly toolkit for urban design and analysis. It provides a suite of tools and functionalities to aid in urban environment analysis, from image segmentation for building detection to planform generation and 3D reconstruction. Additionally, the project includes a graphical user interface (GUI) for easy and convenient operation.
+Welcome to the "Urban Studio" development branch dedicated to model fine-tuning and self-few-shot labeling for segmentation. This branch enables you to enhance the accuracy of your urban environment segmentation model through fine-tuning and self-labeling, making it even more powerful and customizable.
 
-## 📚 Table of Contents
+## Table of Contents
 
-- [Urban Studio](#urban-studio)
-  - [📚 Table of Contents](#-table-of-contents)
-  - [🚀 Features](#-features)
-  - [🛠 Installation](#-installation)
-  - [🖥 Usage](#-usage)
-  - [📖 Documentation](#-documentation)
-  - [🤝 Contributing](#-contributing)
-  - [📝 To-Do List](#-to-do-list)
-  - [📄 License](#-license)
+- [Urban Studio - Dev Branch (Model Fine-Tuning)](#urban-studio---dev-branch-model-fine-tuning)
+  - [Table of Contents](#table-of-contents)
+  - [Overview](#overview)
+  - [Features](#features)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [Contributing](#contributing)
+  - [License](#license)
 
-## 🚀 Features
+## Overview
 
-- **Image Segmentation**: Quickly and accurately segment urban environments to analyze the percentage of buildings in the area.
+In this development branch, we're focusing on improving the segmentation capabilities of Urban Studio. You can fine-tune the existing segmentation model using your own data, and also employ self-few-shot labeling to make the model more context-aware and precise in identifying urban features.
 
-- **Planform Generation**: Generate planforms and layouts for urban design projects, facilitating the creation of optimal urban structures.
+## Features
 
-- **3D Reconstruction**: Create detailed 3D models from 2D urban imagery, allowing for a comprehensive understanding of urban landscapes.
+- **Model Fine-Tuning**: Customize the segmentation model using your own labeled data for better performance in urban environment analysis.
 
-- **Graphical User Interface (GUI)**: Urban Studio features an intuitive GUI for easy and efficient interaction with the toolkit.
+- **Self-Few-Shot Labeling**: Utilize self-few-shot labeling techniques to enhance the model's accuracy by providing context-aware labeling.
 
-## 🛠 Installation
+## Installation
 
-To use Urban Studio, follow these steps:
+To get started with this development branch, follow these steps:
 
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/urban-studio.git
+   git clone -b dev https://github.com/yourusername/urban-studio.git
    ```
 
-2. Create virtual environment (conda is recommanded)
+2. Install the required dependencies by running:
 
    ```bash
-   conda create -n urban-studio -y python=3.9
-   conda activate urban-studio
+   pip install -r requirements.txt
    ```
 
-3. Install the required dependencies and build the project by running:
-
-   ```bash
-   pip install -e .
-   ```
-
-4. Launch the application by running:
+3. Launch the application by running:
 
    ```bash
    python urban_studio.py
    ```
 
-## 🖥 Usage
+## Usage
 
-1. **Image Segmentation**: Open an urban image in the Urban Studio GUI. Click the "Segment" button to perform image segmentation and analyze the building percentage.
+1. **Model Fine-Tuning**: Use the fine-tuning feature to load your own data and labels, and adjust the segmentation model to your specific urban environment.
 
-2. **Planform Generation**: Use the "Planform Generator" feature to create various urban layouts based on your design parameters.
+2. **Self-Few-Shot Labeling**: Employ the self-few-shot labeling tool to provide additional context-aware labels for urban features to improve segmentation accuracy.
 
-3. **3D Reconstruction**: Load 2D urban images and convert them into detailed 3D models using the "3D Reconstruction" tool.
+For detailed instructions and tutorials on how to use these features effectively, refer to the [documentation](#documentation).
 
-For detailed instructions and tutorials on how to use specific features, please refer to the [documentation](#documentation).
+## Contributing
 
-## 📖 Documentation
+We encourage contributions to make this development branch even more robust and feature-rich. To contribute to the "Dev" branch, please follow our [Contributing Guidelines](CONTRIBUTING.md) specific to this branch.
 
-For comprehensive documentation and detailed guides on using Urban Studio, please visit our [Documentation](/docs) folder. You can find in-depth information on each feature, as well as usage examples.
+Your contributions and insights into model fine-tuning and self-few-shot labeling are highly valued!
 
-## 🤝 Contributing
-
-We welcome contributions from the community. If you'd like to contribute to Urban Studio, please follow our [Contributing Guidelines](CONTRIBUTING.md). Your input and enhancements are greatly appreciated!
-
-## 📝 To-Do List
-
-Here's a list of planned features and improvements for Urban Studio:
-
-- [ ] Implement a feature for urban green space analysis.
-- [ ] Enhance the 3D visualization capabilities.
-- [ ] Add support for importing GIS data.
-- [ ] Improve performance and optimize algorithms.
-- [ ] Create tutorials for advanced use cases.
-
-Feel free to contribute to any of these tasks or propose your own!
-
-## 📄 License
+## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
