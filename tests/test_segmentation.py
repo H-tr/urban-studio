@@ -1,5 +1,5 @@
 import unittest
-from urban_studio.core import segmentation
+from src.core import segmentation
 from PIL import Image
 import requests
 
