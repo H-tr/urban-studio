@@ -46,49 +46,6 @@ class Segmentor:
             self.config_file, self.checkpoint_file, device=self.device
         )
 
-    @staticmethod
-    def dynamic_classes():
-        """Get the list of dynamic classes for masking."""
-        return [
-            2,
-            12,
-            43,
-            76,
-            80,
-            83,
-            90,
-            92,
-            98,
-            99,
-            102,
-            103,
-            107,
-            108,
-            110,
-            111,
-            112,
-            114,
-            115,
-            116,
-            117,
-            118,
-            119,
-            120,
-            122,
-            124,
-            125,
-            126,
-            127,
-            129,
-            133,
-            134,
-            135,
-            138,
-            139,
-            142,
-            147,
-        ]
-
     def set_model(self, config_file: str, checkpoint_file: str):
         """Set the model with new configuration and checkpoint files.
 
@@ -126,24 +83,6 @@ class Segmentor:
         # test a video and show the results
         return result
 
-    def mask(self, result: SegDataSample) -> np.ndarray:
-        """Make all the dynamic classes values to 0 and rest to 1.
-
-        Args:
-            result (SegDataSample): The segmentation result.
-
-        Returns:
-            np.ndarray: The masked segmentation map.
-
-        """
-        result = result.pred_sem_seg.cpu().data
-        result = result[0]
-        mask = np.zeros_like(result, dtype=np.uint8)
-        mask[:, :] = 1
-        for label in Segmentor.dynamic_classes():
-            mask[result == label] = 0
-        return mask
-
     def get_result(
         self,
         img: str,
@@ -152,7 +91,7 @@ class Segmentor:
         out_file: str = None,
         opacity: float = 0.5,
     ):
-        """Mask the dynamic classes and visualize the results.
+        """Visualize the results.
 
         Args:
             img (str): Path to the input image.
@@ -164,9 +103,8 @@ class Segmentor:
         """
         image = mmcv.imread(img, channel_order="rgb")
         classes = ade_classes()
-        dynamic_classes = Segmentor.dynamic_classes()
         pred_img_data = self._draw_sem_seg(
-            image, result.pred_sem_seg, classes, dynamic_classes, opacity
+            image, result.pred_sem_seg, classes, opacity
         )
         if self.save_dir is not None:
             mmcv.imwrite(mmcv.rgb2bgr(pred_img_data), out_file)
@@ -200,7 +138,6 @@ class Segmentor:
         image: np.ndarray,
         sem_seg: PixelData,
         classes: None | list,
-        dynamic_classes: None | list,
         opacity: float = 0.5,
     ):
         """Draw the semantic segmentation on the input image.
@@ -209,7 +146,6 @@ class Segmentor:
             image (np.ndarray): Input image.
             sem_seg (PixelData): Semantic segmentation result.
             classes (None | list): List of class names.
-            dynamic_classes (None | list): List of dynamic classes for masking.
             opacity (float, optional): Opacity of the painted segmentation map. Defaults to 0.5.
 
         Returns:
@@ -221,8 +157,6 @@ class Segmentor:
         ids = np.unique(sem_seg)[::-1]
         legal_indices = ids < num_classes
         ids = ids[legal_indices]
-        # select those not in dynamic classes
-        ids = np.array([id for id in ids if id not in dynamic_classes])
         labels = np.array(ids, dtype=np.int64)
         palette = ade_palette()
         colors = [palette[label] for label in labels]
