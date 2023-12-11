@@ -29,7 +29,7 @@ To use Urban Studio, follow these steps:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/h-tr/urban-studio.git
+   git clone https://github.com/H-tr/urban-studio.git
    ```
 
 2. Create virtual environment (conda is recommanded)
