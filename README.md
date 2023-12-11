@@ -71,10 +71,6 @@ To use Urban Studio, follow these steps:
 
 1. **Image Segmentation**: Open an urban image in the Urban Studio GUI. Click the "Segment" button to perform image segmentation and analyze the building percentage.
 
-2. **Planform Generation**: Use the "Planform Generator" feature to create various urban layouts based on your design parameters.
-
-3. **3D Reconstruction**: Load 2D urban images and convert them into detailed 3D models using the "3D Reconstruction" tool.
-
 For detailed instructions and tutorials on how to use specific features, please refer to the [documentation](#documentation).
 
 ## 📖 Documentation
@@ -89,7 +85,8 @@ We welcome contributions from the community. If you'd like to contribute to Urba
 
 Here's a list of planned features and improvements for Urban Studio:
 
-- [ ] Implement a feature for urban green space analysis.
+- [x] Implement a feature for urban green space analysis.
+- [ ] Implement a GUI
 - [ ] Create tutorials for advanced use cases.
 
 Feel free to contribute to any of these tasks or propose your own!
