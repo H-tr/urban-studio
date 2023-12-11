@@ -20,10 +20,6 @@ Urban Studio is a powerful and user-friendly toolkit for urban design and analys
 
 - **Image Segmentation**: Quickly and accurately segment urban environments to analyze the percentage of buildings in the area.
 
-- **Planform Generation**: Generate planforms and layouts for urban design projects, facilitating the creation of optimal urban structures.
-
-- **3D Reconstruction**: Create detailed 3D models from 2D urban imagery, allowing for a comprehensive understanding of urban landscapes.
-
 - **Graphical User Interface (GUI)**: Urban Studio features an intuitive GUI for easy and efficient interaction with the toolkit.
 
 ## 🛠 Installation
@@ -33,13 +29,13 @@ To use Urban Studio, follow these steps:
 1. Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/urban-studio.git
+   git clone https://github.com/h-tr/urban-studio.git
    ```
 
 2. Create virtual environment (conda is recommanded)
 
    ```bash
-   conda create -n urban-studio -y python=3.9
+   conda create -n urban-studio -y python=3.10
    conda activate urban-studio
    ```
 
@@ -78,9 +74,6 @@ We welcome contributions from the community. If you'd like to contribute to Urba
 Here's a list of planned features and improvements for Urban Studio:
 
 - [ ] Implement a feature for urban green space analysis.
-- [ ] Enhance the 3D visualization capabilities.
-- [ ] Add support for importing GIS data.
-- [ ] Improve performance and optimize algorithms.
 - [ ] Create tutorials for advanced use cases.
 
 Feel free to contribute to any of these tasks or propose your own!
