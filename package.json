@@ -7,7 +7,8 @@
     "test": "tests"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,8 @@
   "bugs": {
     "url": "https://github.com/H-tr/urban-studio/issues"
   },
-  "homepage": "https://github.com/H-tr/urban-studio#readme"
+  "homepage": "https://github.com/H-tr/urban-studio#readme",
+  "devDependencies": {
+    "electron": "^28.0.0"
+  }
 }
