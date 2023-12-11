@@ -1,3 +1,4 @@
+import os
 import yaml
 import argparse
 from core.segmentation import inference
@@ -25,7 +26,11 @@ def main():
     segmentor = inference.Segmentor(
         model_config_file, model_checkpoint_file, output_path, device
     )
-    segmentor.inference(input_path, True)
+    # Read all the images in the input path
+    for image in os.listdir(input_path):
+        image_path = os.path.join(input_path, image)
+        # If you want to visualize the segmentation results, set display = True
+        result = segmentor.inference(image_path, display = False)
 
 
 if __name__ == "__main__":
