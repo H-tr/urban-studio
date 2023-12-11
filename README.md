@@ -53,10 +53,18 @@ To use Urban Studio, follow these steps:
 
    By default, we are using the segformer trained on ade20k dataset. Feel free to try other models!
 
-4. Launch the application by running:
+4. You should specific your image path and output path in `configs` 
+   
+5. Launch the application by running:
 
    ```bash
-   python urban_studio.py
+   python src/main.py --config configs/segmentation.yaml
+   ```
+
+   For example
+
+   ```bash
+   python src/main.py --config configs/segmentation.yaml
    ```
 
 ## 🖥 Usage
