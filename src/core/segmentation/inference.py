@@ -46,6 +46,16 @@ class Segmentor:
             self.config_file, self.checkpoint_file, device=self.device
         )
 
+    @staticmethod
+    def interested_classes() -> list:
+        """Get the list of interested classes.
+
+        Returns:
+            list: List of interested classes.
+
+        """
+        return [1, 2, 4, 6, 9, 11, 13, 16, 17, 21]
+
     def set_model(self, config_file: str, checkpoint_file: str):
         """Set the model with new configuration and checkpoint files.
 
@@ -80,7 +90,6 @@ class Segmentor:
             # you can change the opacity of the painted segmentation map in (0, 1].
 
             self.get_result(img, result, show=display, out_file=out_file, opacity=0.5)
-        # test a video and show the results
         return result
 
     def get_result(
@@ -103,9 +112,7 @@ class Segmentor:
         """
         image = mmcv.imread(img, channel_order="rgb")
         classes = ade_classes()
-        pred_img_data = self._draw_sem_seg(
-            image, result.pred_sem_seg, classes, opacity
-        )
+        pred_img_data = self._draw_sem_seg(image, result.pred_sem_seg, classes, opacity)
         if self.save_dir is not None:
             mmcv.imwrite(mmcv.rgb2bgr(pred_img_data), out_file)
         if show:
@@ -157,6 +164,7 @@ class Segmentor:
         ids = np.unique(sem_seg)[::-1]
         legal_indices = ids < num_classes
         ids = ids[legal_indices]
+        ids = np.array([id for id in ids if id in Segmentor.interested_classes()])
         labels = np.array(ids, dtype=np.int64)
         palette = ade_palette()
         colors = [palette[label] for label in labels]

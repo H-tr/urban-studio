@@ -45,6 +45,14 @@ To use Urban Studio, follow these steps:
    pip install -e .
    ```
 
+   We are using mmcv as dependency, so we need to install the pretrained model and config files
+   
+   ```bash
+   mim download mmsegmentation --config segformer_mit-b4_8xb2-160k_ade20k-512x512 --dest src/models
+   ```
+
+   By default, we are using the segformer trained on ade20k dataset. Feel free to try other models!
+
 4. Launch the application by running:
 
    ```bash

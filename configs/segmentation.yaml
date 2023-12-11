@@ -1,0 +1,7 @@
+input_path: /path/to/input
+output_path: /path/to/output
+
+model:
+  config_file: src/models/segformer_mit-b4_8xb2-160k_ade20k-512x512.py
+  checkpoint_file: src/models/segformer_mit-b4_512x512_160k_ade20k_20210728_183055-7f509d7d.pth
+  device: cuda:0
