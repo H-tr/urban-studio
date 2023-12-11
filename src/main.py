@@ -1,7 +1,11 @@
 import os
 import yaml
 import argparse
+from utils.segmentation_utils import ade_classes
 from core.segmentation import inference
+
+import warnings
+warnings.filterwarnings("ignore")
 
 
 def main():
@@ -31,6 +35,12 @@ def main():
         image_path = os.path.join(input_path, image)
         # If you want to visualize the segmentation results, set display = True
         result = segmentor.inference(image_path, display = False)
+        print("=====================================================")
+        print(f"Image: {image_path}")
+        for id in inference.Segmentor.interested_classes():
+            percentage = segmentor.get_percentage(id, result)
+            if percentage > 0:
+                print(f"\tThe percentage of {ade_classes()[id]} is {100 * percentage: .2f}%")
 
 
 if __name__ == "__main__":

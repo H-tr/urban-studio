@@ -92,6 +92,21 @@ class Segmentor:
             self.get_result(img, result, show=display, out_file=out_file, opacity=0.5)
         return result
 
+    def get_percentage(self, id, result: SegDataSample) -> float:
+        """Get the percentage of the semantic segmentation.
+
+        Args:
+            id (int): Class id.
+            result (SegDataSample): Segmentation result.
+
+        Returns:
+            float: Percentage of the semantic segmentation.
+
+        """
+        sem_seg = result.pred_sem_seg.cpu().data
+        mask = sem_seg[0] == id
+        return np.count_nonzero(mask) / (mask.shape[0] * mask.shape[1])
+
     def get_result(
         self,
         img: str,
